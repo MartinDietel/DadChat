@@ -1,9 +1,15 @@
 package com.dadapp.seniorproject.chat.controller;
 
-import com.dadapp.seniorproject.user.*;
-import com.dadapp.seniorproject.bean.PagingInfo;
-import com.dadapp.seniorproject.chat.model.ChatMessage;
-import com.dadapp.seniorproject.chat.service.MessageService;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.apache.commons.text.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +24,6 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
-import org.springframework.messaging.support.MessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,21 +31,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import java.security.Principal;
-import java.util.*;
+import com.dadapp.seniorproject.bean.PagingInfo;
+import com.dadapp.seniorproject.chat.model.ChatMessage;
+import com.dadapp.seniorproject.chat.service.MessageService;
+import com.dadapp.seniorproject.user.ActiveUserChangeListener;
+import com.dadapp.seniorproject.user.ActiveUserManager;
+import com.dadapp.seniorproject.user.User;
+import com.dadapp.seniorproject.user.UserRepo;
+import com.dadapp.seniorproject.user.UserService;
 
 @Controller
 public class ChatController implements ActiveUserChangeListener {
-	
-	private static final Logger logger = LoggerFactory.getLogger(ChatController.class);
 
-	private static final String ERROR_WHILE_INSERT = "Error while inserting value";
+    private static final Logger logger = LoggerFactory.getLogger(ChatController.class);
+
+    private static final String ERROR_WHILE_INSERT = "Error while inserting value";
     private final Set<String> userList = new HashSet<>();
-	
-	@Autowired
-	private MessageService messageService;
+
+    @Autowired
+    private MessageService messageService;
     @Autowired
     private UserService userService;
     @Autowired
@@ -59,7 +68,7 @@ public class ChatController implements ActiveUserChangeListener {
     private void destroy() {
         activeUserManager.removeListener(this);
     }
-	
+
     @RequestMapping(value = "/chat", method = RequestMethod.GET)
     public String chat(Model model, Principal principal) {
         String userName = principal.getName().trim();
@@ -67,14 +76,15 @@ public class ChatController implements ActiveUserChangeListener {
         model.addAttribute("userName", userName);
         model.addAttribute("userInfo", userInfo);
         model.addAttribute("userList", userService.findAllUsers());
-    	return "chat";
+        return "chat";
     }
 
     @MessageMapping("/message/send")
     @SendTo("/topic/messages/flow")
-    public ChatMessage message(SimpMessageHeaderAccessor headerAccessor, StompHeaderAccessor accessor, @Payload ChatMessage chatMessage) throws Exception {
+    public ChatMessage message(SimpMessageHeaderAccessor headerAccessor, StompHeaderAccessor accessor,
+            @Payload ChatMessage chatMessage) throws Exception {
 
-    	String username = StringEscapeUtils.escapeHtml4(Objects.requireNonNull(headerAccessor.getUser()).getName());
+        String username = StringEscapeUtils.escapeHtml4(Objects.requireNonNull(headerAccessor.getUser()).getName());
         try {
             chatMessage.setSender(username);
             chatMessage.setRecipient(getActiveUsersExceptCurrentUser(username));
@@ -85,20 +95,16 @@ public class ChatController implements ActiveUserChangeListener {
 
             userList.add(username);
 
-
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Something went wrong.");
         }
         return chatMessage;
     }
 
-
-
     @MessageMapping("/messages/askList")
     @SendTo("/topic/messages/list")
     public Page<ChatMessage> messagesList(PagingInfo page) {
-    	return messageService.findAll(page.getPage());
+        return messageService.findAll(page.getPage());
     }
 
     @MessageMapping("/users/askList")
@@ -106,13 +112,13 @@ public class ChatController implements ActiveUserChangeListener {
     public List<String> usersList() {
         return new ArrayList<>(userList);
     }
-    
+
     @MessageExceptionHandler
     @SendToUser("/topic/message/error")
     public ChatMessage error(Exception e) {
-    	return new ChatMessage(ERROR_WHILE_INSERT + "." + e);
+        return new ChatMessage(ERROR_WHILE_INSERT + "." + e);
     }
-    
+
     @EventListener
     public void onSocketConnected(SessionConnectedEvent event) {
         StompHeaderAccessor sha = StompHeaderAccessor.wrap(event.getMessage());
@@ -122,7 +128,7 @@ public class ChatController implements ActiveUserChangeListener {
         logger.info("[Connected] " + username);
         userList.add(username);
         activeUserManager.add(username, sha.getSessionId());
-        
+
         webSocket.convertAndSend("/topic/users/list", new ArrayList<>(userList));
     }
 
@@ -130,12 +136,12 @@ public class ChatController implements ActiveUserChangeListener {
     public void onSocketDisconnected(SessionDisconnectEvent event) {
         StompHeaderAccessor sha = StompHeaderAccessor.wrap(event.getMessage());
         String user = Objects.requireNonNull(sha.getUser()).getName();
-        
+
         String username = StringEscapeUtils.escapeHtml4(user);
         logger.info("[Disconnected] " + username);
         userList.remove(username);
         activeUserManager.remove(username);
-        
+
         webSocket.convertAndSend("/topic/users/list", new ArrayList<>(userList));
     }
 

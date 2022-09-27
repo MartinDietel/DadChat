@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="fragments/head :: head"></div>
+<div th:insert="fragments/head :: head"></div>
+
 <body>
-<div th:replace="fragments/navigation :: navbar"></div>
-<div th:replace="fragments/pagetitle :: pagetitle"></div>
+    <div th:replace="fragments/navigation :: navbar"></div>
+    <div th:replace="fragments/pagetitle :: pagetitle"></div>
+
+    <div class="col-md-4 col-sm-10" style="margin-right: auto; margin-left: auto;">
+        <div class="login-form">
+            <hr>
+            <form action="#" th:action="@{/save}" th:object="${user}" class="form-signin" method="POST">
+
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" th:field="*{firstName}" placeholder="First Name"
+                        class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" th:field="*{lastName}" placeholder="Last Name" class="form-control"
+                        required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" th:field="*{email}" placeholder="Email" class="form-control"
+                        required />
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" th:field="*{username}" placeholder="Username" class="form-control"
+                        required />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" th:field="*{passwordConfirm}" placeholder="Password"
+                        class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="zipcode">Zipcode:</label>
+                    <input type="text" id="zipcode" th:field="*{zipcode}" placeholder="Zipcode" class="form-control"
+                        required />
+                </div>
 
 
+                <button type="submit" class="btn btn-primary btn-block"> Save Details </button>
+            </form>
 
-    <div class="container">
-        <hr>
-        <form action="#" th:action="@{/save}" th:object="${user}" method="POST">
+            <hr>
 
-            <label for="firstname">First Name:</label>
-            <input type="text" id="firstname" th:field="*{firstname}" placeholder="First Name" class="form-control mb-4 col-4" required>
-
-            <label for="lastname">Last Name:</label>
-            <input type="text" id="lastname" th:field="*{lastname}" placeholder="Last Name" class="form-control mb-4 col-4" required>
-
-            <label for="email">Email Name:</label>
-            <input type="text" id="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
-
-            <label for="username">Username:</label>
-            <input type="text" id="username" th:field="*{username}" placeholder="Username" class="form-control mb-4 col-4" required>
-
-            <label for="password">Password:</label>
-            <input type="text" id="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4" required>
-
-            <label for="zipcode">Zipcode:</label>
-            <input type="text" id="zipcode" th:field="*{zipcode}" placeholder="Zipcode" class="form-control mb-4 col-4" required>
-
-
-            <button type="submit" class="btn btn-info col-2"> Save Customer</button>
-        </form>
-
-        <hr>
-
-        <a th:href="@{/userlist}"> Back to Customer List</a>
+            <a th:href="@{/}" style="margin-right: auto; margin-left: auto;"> Back to Home </a>
+        </div>
     </div>
-<div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
-</html>
 
+</html>

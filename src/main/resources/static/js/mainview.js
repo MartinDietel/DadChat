@@ -1,5 +1,4 @@
-$(document).ready(function (e) {
-
+$(document).ready(function () {
     function showView(viewName) {
         $('.view').hide();
         $('#' + viewName).show();
@@ -10,5 +9,4 @@ $(document).ready(function (e) {
         let viewName = $(this).attr('data-launch-view');
         showView(viewName);
     });
-
 });

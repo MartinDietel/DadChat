@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 
@@ -8,72 +8,71 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
+		<!-- lookup parent from repository -->
 	</parent>
 
 
 	<groupId>com.dadapp.seniorproject</groupId>
 	<artifactId>seniorproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dadapp</name>
-
-
-	<properties>
-		<java.version>11</java.version>
-	</properties>
+	<name>dadchat</name>
+	<packaging>jar</packaging>
 
 
 	<dependencies>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-test</artifactId>-->
-<!--			<scope>test</scope>-->
-<!--			<version>2.5.4</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-			<version>2.5.4</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>2.5.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-			<version>2.5.4</version>
+			<exclusions>
+				<exclusion>
+					<groupId>nz.net.ultraq.thymeleaf</groupId>
+					<artifactId>thymeleaf-layout-dialect</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>2.5.4</version>
-            <scope>compile</scope>
-        </dependency>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>2.5.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
-			<version>2.5.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
-			<version>2.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-			<version>2.5.4</version>
 		</dependency>
 
 
@@ -86,12 +85,12 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>5.3.15</version>
+			<version>5.3.23</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
-			<version>5.3.15</version>
+			<version>5.3.21</version>
 		</dependency>
 
 
@@ -144,15 +143,6 @@
 		</dependency>
 
 
-
-		<dependency>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.8.1</version>
-		</dependency>
-
-
-
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator-core</artifactId>
@@ -171,7 +161,7 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
-			<version>3.3.7</version>
+			<version>5.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -185,15 +175,33 @@
 			<artifactId>commons-text</artifactId>
 			<version>1.9</version>
 		</dependency>
-    </dependencies>
+	</dependencies>
+
+	<properties>
+		<java.version>11</java.version>
+		<start-class>com.dadapp.seniorproject.DadappApplication</start-class>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<webjars-bootstrap.version>3.3.7</webjars-bootstrap.version>
+		<webjars-jquery-ui.version>1.12.1</webjars-jquery-ui.version>
+		<webjars-jquery.version>3.1.1-1</webjars-jquery.version>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.verbose>true</maven.compiler.verbose>
+	</properties>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.5.4</version>
 				<configuration>
+					<additionalProperties>
+						<encoding.source>${project.build.sourceEncoding}</encoding.source>
+						<encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
+						<java.source>${maven.compiler.source}</java.source>
+						<java.target>${maven.compiler.target}</java.target>
+					</additionalProperties>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -201,8 +209,35 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>https://repo.spring.io/snapshot</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 </project>

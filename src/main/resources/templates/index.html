@@ -1,48 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div th:insert="fragments/head :: head"></div>
+
 <head>
-    <script src="js/index.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="/js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
 </head>
+
 <body>
-<div th:replace="fragments/navigation :: navbar"></div>
-<div class="container">
-    <div sec:authorize="isAuthenticated()">
-        <h4 style="text-align: center">Welcome, <span sec:authentication="name"></span></h4>
+    <div th:replace="fragments/navigation :: navbar"></div>
+    <div class="container">
+        <div sec:authorize="isAuthenticated()">
+            <h4 style="text-align: center">Welcome, <span sec:authentication="name"></span></h4>
+        </div>
     </div>
-</div>
 
-<div class="d-flex justify-content-between">
-    <img src="icons/DadApp-logos_black.png" style="padding-top: 80px;" class="center"/>
-    <div class="Container">
-        <div class="Second">
-            <h2 class="text-dark">Upcoming Events</h2>
-            <div class="Content border border-dark rounded" >
-                <ul id="eventList" ></ul>
 
-                <div class="card text-center text-white bg-dark mb-3" id="eventCard0">
-                    <div class="card-header" id = "eventCategory0">
-                        Category
-                    </div>
-                    <div class="card-body search_section">
-                        <h5 class="card-title" id = "eventTitle0">Title</h5>
-                        <p class="card-text " id = "eventTime0">Event Time </p>
-                        <div  style="display: inline-block">
-                            <p class="card-text" id = "eventAddress0" style="display: inline-block">Address </p>  <a href="#" target="_blank" id="eventMapLink0" class="card-link">Get Directions</a>
+
+    <div class="d-flex justify-content-between" style="width: 97%; height: 87%">
+        <div id="aboutDiv" style="width: -webkit-fill-available">
+
+
+            <h1 class="center" style="width: 60%; padding-top: 10px;">Welcome to Dad Chat!</h1>
+
+            <img src="/images/IndexDadPic.jpg" style="padding-top: 10px; height: 44%; width: 60%;" class="center" />
+            <!--https://unsplash.com/photos/wBgAVAGjzFg-->
+            <div class="center" style="width: 60%">
+                <div class="center" style=" margin-top: 5px">Dad Chat is an app that can be used to find other single
+                    fathers and arrange play-dates. Check out what our site has to offer:</div>
+                <h3 style=" margin-top: 5px">Find Places Near You</h3>
+                <div style=" margin-top: 5px">DadChat offers searching for daycares, lawyers, and doctors reviewed by
+                    other fathers. Just click the drop down at the
+                    top of the page and click find. You will then be prompted for your location to get the best accuracy
+                    near you. Alternatively, you can input a zip
+                    code to search.</div>
+                <h3 style=" margin-top: 5px">See Upcoming Events</h3>
+                <div style=" margin-top: 5px">Head over to the <a href="/events">events</a> page to see events and
+                    playdates organized by other fathers.
+                    You can also see the most upcoming events in the right sidebar of this page.</div>
+                <h3 style=" margin-top: 5px">Message other Fathers</h3>
+                <div style=" margin-top: 5px">Once you have found a event you are interested in you can message the
+                    organizer via our <a href="/chat">messages</a> tab. Its a great place to know more about events,
+                    make friends, and learn tips from other fathers.</div>
+            </div>
+
+
+
+        </div>
+
+        <div class="Container">
+            <div class="Second">
+                <h2 class="text-dark">Upcoming Events</h2>
+                <div class="Content border border-dark rounded">
+                    <ul id="eventList"></ul>
+
+                    <div class="card eventCard text-white bg-dark mb-3" id="eventCard0">
+                        <div class="card-header" id="eventCategory0">
+                            Category
                         </div>
-                        <p class="card-text" id = "eventDescription0">Description</p>
-                        <p class="card-text" id = "eventChildrenAgeRange0">Child Age Range</p>
-                    </div>
-                    <div class="card-footer text-muted" id = "eventTimestampAndUsername0">
-                        timestamp days ago by Username
+                        <div class="card-body search_section">
+                            <h5 class="card-title" id="eventTitle0">Title</h5>
+                            <p class="card-text " id="eventTime0">Event Time </p>
+                            <div style="display: inline-block">
+                                <p class="card-text" id="eventAddress0" style="display: inline-block">Address </p> <a
+                                    href="#" target="_blank" id="eventMapLink0" class="card-link">Get Directions</a>
+                            </div>
+                            <p class="card-text" id="eventDescription0">Description</p>
+                            <p class="card-text" id="eventChildrenAgeRange0">Child Age Range</p>
+                        </div>
+                        <div class="card-footer text-muted" id="eventTimestampAndUsername0">
+                            <span id="eventTimestamp0">timestamp days ago by</span><a id="usernameLabel0"
+                                class="usernameLinks" href='javascript:;' data-toggle="modal" data-target="#userModal"
+                                data-username="">username</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div th:replace="fragments/footer :: footer"></div>
+    <div class="center" style=" position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;">Copyright © 2022 DaddyChatters, LLC. All rights reserved.</div>
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
-</html>
 
+</html>

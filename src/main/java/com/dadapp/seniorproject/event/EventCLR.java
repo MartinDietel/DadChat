@@ -1,17 +1,14 @@
 package com.dadapp.seniorproject.event;
 
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
 
 @Component("event")
 public class EventCLR implements CommandLineRunner {
@@ -25,35 +22,30 @@ public class EventCLR implements CommandLineRunner {
     @Bean
     CommandLineRunner eventCommandLineRunner(EventRepo eventRepo) {
         return args -> {
-            Event event1 = new Event (
-                    "ThatDuder",
-                    "123 Stuff Lane, Pooopy, PANTS",
-                    41011,
+            Event event1 = new Event(
+                    "dstober",
+                    "2600 Clifton Ave, Cincinnati",
+                    45220,
                     "Come to My Boys Birthday Party!",
-                    "This little shit needs friends.",
+                    "We are celebrating my boys 5th birthday party!!! There will be free cake, games, and fun! Please come make his day.",
                     "Birthday",
-                    "2022-02-22",
+                    "2022-03-24",
                     "16:00",
-                    "3-5"
-            );
+                    "3-5");
 
-
-
-            Event event2 = new Event (
-                    "ThatOtherDude",
-                    "456 Things Lane, PeePee, PANTS",
-                    41011,
+            Event event2 = new Event(
+                    "eacres",
+                    "3251 Brookline Ave, Cincinnati, OH",
+                    45220,
                     "Open Call For Play Date",
-                    "This little shit needs friends.",
+                    "I'm taking my 7 year old daughter to the park. We are going to do some walking and maybe some soccer if anyone would like to join.",
                     "Playdate",
-                    "2022-03-03",
+                    "2022-03-24",
                     "13:00",
-                    "13-15"
-            );
+                    "6-9");
 
             eventRepo.saveAll(
-                    List.of(event1, event2)
-            );
+                    List.of(event1, event2));
         };
     }
 

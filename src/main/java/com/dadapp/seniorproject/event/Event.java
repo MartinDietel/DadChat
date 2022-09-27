@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-
 @Entity
 @Table(name = "event")
 @NoArgsConstructor
@@ -22,9 +21,7 @@ public class Event {
     private final static Logger log = LoggerFactory.getLogger(Event.class);
 
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long eventId;
 
     private String address;
@@ -47,7 +44,6 @@ public class Event {
 
     private String childrenAgeRange;
 
-
     public String getTimestamp() {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         final SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -56,9 +52,9 @@ public class Event {
     }
 
     public Event(String username, String address,
-                 int zipcode, String title,
-                 String description, String category,
-                 String eventDate, String eventTime, String childrenAgeRange) {
+            int zipcode, String title,
+            String description, String category,
+            String eventDate, String eventTime, String childrenAgeRange) {
         this.username = username;
         this.address = address;
         this.zipcode = zipcode;
@@ -67,8 +63,14 @@ public class Event {
         this.category = category;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
-      //  this.createdOn = createdOn;
         this.createdOn = getTimestamp();
         this.childrenAgeRange = childrenAgeRange;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "title='" + title + '\'' +
+                '}';
     }
 }

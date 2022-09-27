@@ -2,6 +2,10 @@ package com.dadapp.seniorproject.user;
 
 import com.dadapp.seniorproject.config.security.SecurityService;
 import com.dadapp.seniorproject.config.security.UserValidator;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,19 +82,19 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteUser(@PathVariable("id") Long id) {
+    public ResponseEntity<ResponseStatus> deleteUser(@PathVariable("id") Long id) {
         try {
             userService.deleteUser(id);
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity<ResponseStatus>(HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<ResponseStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping(value = "/edit/{id}")
     public String editUser(@PathVariable(value = "id") Long id, Model model) {
         User user = userService.getId(id);
-        model.addAttribute("user",  user);
+        model.addAttribute("user", user);
         model.addAttribute("userName", user.getUsername());
         model.addAttribute("firstName", user.getFirstName());
         model.addAttribute("lastName", user.getLastName());
@@ -99,5 +103,41 @@ public class UserController {
         model.addAttribute("createdOn", user.getCreatedOn());
         model.addAttribute("text", "DadApp - Edit User");
         return "edituser";
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @ResponseBody
+    public User getUserData(@RequestParam(defaultValue = "") String username) {
+
+        return userService.findByUsername(username);
+    }
+
+    @RequestMapping(value = "/saveUserDesc", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveUserDesc(@RequestParam(defaultValue = "") String username, String description) {
+        userService.updateUser(username, description);
+        return "";
+    }
+
+    @RequestMapping(value = "/setFriend", method = RequestMethod.POST)
+    @ResponseBody
+    public String setFriend(@RequestParam(defaultValue = "") String adderUsername, String friendUsername,
+            boolean adding) {
+        User adderUser = userService.findByUsername(adderUsername);
+        User friendUser = userService.findByUsername(friendUsername);
+        userService.updateUser(adderUser, friendUser, adding);
+        return "";
+    }
+
+    @RequestMapping(value = "/getFriends", method = RequestMethod.GET)
+    @ResponseBody
+    public List<User> getFriends(@RequestParam(defaultValue = "") String username) {
+        User user = userService.findByUsername(username);
+
+        List<User> friendsOfUser = userService.findAllUsers().stream()
+                .filter(tempUser -> (user.getFriendIds().contains(tempUser.getId().toString())))
+                .collect(Collectors.toList());
+
+        return friendsOfUser;
     }
 }

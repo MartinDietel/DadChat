@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -31,7 +32,6 @@ public class UserService implements IUserService {
 
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
     private static final SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-
 
     @Override
     public List<User> findAllUsers() {
@@ -64,7 +64,6 @@ public class UserService implements IUserService {
         return userRepo.findByUsername(username);
     }
 
-
     @Override
     public void deleteUser(Long id) {
         boolean exists = userRepo.existsById(id);
@@ -81,13 +80,13 @@ public class UserService implements IUserService {
                 .orElseThrow(() -> new IllegalStateException(
                         "user with id " + id + " does not exist"));
 
-        if(username != null &&
+        if (username != null &&
                 username.length() > 0 &&
                 !Objects.equals(user.getFullName(), username)) {
             user.setFullName(username);
         }
 
-        if(email != null &&
+        if (email != null &&
                 email.length() > 0 &&
                 !Objects.equals(user.getEmail(), email)) {
             Optional<User> userOptional = userRepo
@@ -98,6 +97,45 @@ public class UserService implements IUserService {
             user.setEmail(email);
         }
     }
+
+    @Transactional
+    public void updateUser(String username, String description) {
+        User user = userRepo.findByUsername(username);
+        user.setDescription(description);
+    }
+
+    @Transactional
+    public void updateUser(User adderUser, User friendUser, boolean adding) {
+        String friendId = friendUser.getId().toString();
+        ArrayList<String> newFriendIds = new ArrayList<String>();
+        if (adderUser.getFriendIds() != null) {
+            newFriendIds = adderUser.getFriendIds();
+        }
+        if (adding) {// adding friend
+            newFriendIds.add(friendId);
+            adderUser.setFriendIds(newFriendIds);
+
+            friendId = adderUser.getId().toString();
+            if (friendUser.getFriendIds() != null) {
+                newFriendIds = friendUser.getFriendIds();
+            } else {
+                newFriendIds.clear();
+            }
+
+            newFriendIds.add(friendId);
+            friendUser.setFriendIds(newFriendIds);
+        } else {// removing friend
+            newFriendIds.remove(newFriendIds.indexOf(friendId));
+            adderUser.setFriendIds(newFriendIds);
+
+            friendId = adderUser.getId().toString();
+            if (friendUser.getFriendIds() != null) {
+                newFriendIds = friendUser.getFriendIds();
+            } else {
+                newFriendIds.clear();
+            }
+            newFriendIds.remove(newFriendIds.indexOf(friendId));
+            friendUser.setFriendIds(newFriendIds);
+        }
+    }
 }
-
-

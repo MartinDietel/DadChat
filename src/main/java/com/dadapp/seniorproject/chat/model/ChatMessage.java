@@ -1,20 +1,24 @@
 package com.dadapp.seniorproject.chat.model;
 
-import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "chat_message")
 public class ChatMessage {
 
 	private Long id;
-    private LocalDate date;
+	private LocalDate date;
 	private String sender;
 	private String recipient;
 	private String channel;
 	private String content;
-	
+
 	public ChatMessage() {
 		this.date = LocalDate.now();
 	}
@@ -30,43 +34,49 @@ public class ChatMessage {
 		this.channel = channel;
 	}
 
-    public ChatMessage(String sender, String recipient, String content, String channel) {
+	public ChatMessage(String sender, String recipient, String content, String channel) {
 		this.sender = sender;
 		this.recipient = recipient;
 		this.content = content;
 		this.channel = channel;
-    }
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	public ChatMessage(LocalDate date, String sender, String content) {
+		this.date = date;
+		this.sender = sender;
+		this.content = content;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getContent() {
 		return content;
 	}
-	
+
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	public void setChannel(String channel) {
 		this.channel = channel;
 	}
-	
+
 	public String getChannel() {
 		return channel;
 	}
-	
+
 	public LocalDate getDate() {
 		return date;
 	}
-	
+
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}

@@ -1,8 +1,6 @@
 package com.dadapp.seniorproject.config.security;
 
-import com.dadapp.seniorproject.chat.controller.AccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,6 +13,8 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.dadapp.seniorproject.chat.controller.AccessDeniedHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -37,20 +37,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/login?*").permitAll()
-                    .antMatchers("/css/**", "/js/**", "/icons/**","/images/**", "/registration").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
+                .antMatchers(HttpMethod.GET, "/login?*").permitAll()
+                .antMatchers("/css/**", "/js/**", "/icons/**", "/images/**", "/registration").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .exceptionHandling()
-                    .accessDeniedHandler(accessDeniedHandler())
-                    .and()
+                .accessDeniedHandler(accessDeniedHandler())
+                .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .permitAll()
-                    .and()
+                .loginPage("/login")
+                .permitAll()
+                .and()
                 .logout()
-                    .permitAll()
-                    .and()
+                .permitAll()
+                .and()
                 .csrf().disable()
                 .cors().disable();
     }

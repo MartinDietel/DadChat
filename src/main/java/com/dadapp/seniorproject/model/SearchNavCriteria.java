@@ -1,9 +1,5 @@
 package com.dadapp.seniorproject.model;
 
-import com.dadapp.seniorproject.search.Search;
-
-import javax.swing.text.html.Option;
-
 public class SearchNavCriteria {
 
     public String search;
@@ -25,10 +21,9 @@ public class SearchNavCriteria {
         this.searchType = searchType;
     }
 
-    public SearchNavCriteria(String search,String searchType) {
+    public SearchNavCriteria(String search, String searchType) {
         this.search = search;
         this.searchType = searchType;
     }
-
 
 }

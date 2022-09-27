@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Custom messanger</title>
@@ -10,100 +11,97 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
     <!--    end libs for stomp and sockjs-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"
-          type="text/css">
+        type="text/css">
     <link href="./css/chat.css" rel="stylesheet">
 </head>
+
 <body>
-<div class="container clearfix">
-    <div class="people-list" id="people-list">
-        <div class="search">
-            <input placeholder="search" type="text"/>
-            <i class="fa fa-search"></i>
-        </div>
-        <ul class="list">
-            <li class="clearfix">
-                <img alt="avatar" height="55px"
-                     src="../static/images/user_male.jpg"
-                     width="55px"/>
-                <div class="about">
-                    <div class="name">UserLogin</div>
-                    <div class="status">
-                        <i class="fa fa-circle online"></i>
-                    </div>
-                </div>
-            </li>
-
-            <li class="clearfix">
-                <img alt="avatar" height="55px"
-                     src="../static/images/user_male.jpg"
-                     width="55px"/>
-                <div class="about">
-                    <div class="name">UserLogin</div>
-                    <div class="status">
-                        <i class="fa fa-circle offline"></i>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="chat">
-        <div class="chat-header clearfix">
-            <img alt="avatar" height="55px"
-                 src="../static/images/user_male.jpg"
-                 width="55px"/>
-
-            <div class="chat-about">
-                <div class="chat-with">Chat with UserLogin</div>
-                <div class="chat-num-messages"></div>
+    <div class="container clearfix">
+        <div class="people-list" id="people-list">
+            <div class="search">
+                <input placeholder="search" type="text" />
+                <i class="fa fa-search"></i>
             </div>
-            <i class="fa fa-star"></i>
-        </div> <!-- end chat-header -->
-
-        <div class="chat-history">
-            <ul>
+            <ul class="list">
+                <li class="clearfix">
+                    <img alt="avatar" height="55px" src="../static/images/user_male.jpg" width="55px" />
+                    <div class="about">
+                        <div class="name">UserLogin</div>
+                        <div class="status">
+                            <i class="fa fa-circle online"></i>
+                        </div>
+                    </div>
+                </li>
 
                 <li class="clearfix">
-                    <div class="message-data align-right">
-                        <span class="message-data-time">10:14 AM, Today</span> &nbsp; &nbsp;
-                        <span class="message-data-name">Olia</span> <i class="fa fa-circle me"></i>
-
-                    </div>
-                    <div class="message other-message float-right">
-                        Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced
-                        any problems at the last phase of the project?
+                    <img alt="avatar" height="55px" src="../static/images/user_male.jpg" width="55px" />
+                    <div class="about">
+                        <div class="name">UserLogin</div>
+                        <div class="status">
+                            <i class="fa fa-circle offline"></i>
+                        </div>
                     </div>
                 </li>
-
-                <li>
-                    <div class="message-data">
-                        <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
-                        <span class="message-data-time">10:20 AM, Today</span>
-                    </div>
-                    <div class="message my-message">
-                        Actually everything was fine. I'm very excited to show this to our team.
-                    </div>
-                </li>
-
             </ul>
+        </div>
 
-        </div> <!-- end chat-history -->
+        <div class="chat">
+            <div class="chat-header clearfix">
+                <img alt="avatar" height="55px" src="../static/images/user_male.jpg" width="55px" />
 
-        <div class="chat-message clearfix">
-            <textarea id="message-to-send" name="message-to-send" placeholder="Type your message" rows="3"></textarea>
+                <div class="chat-about">
+                    <div class="chat-with">Chat with UserLogin</div>
+                    <div class="chat-num-messages"></div>
+                </div>
+                <i class="fa fa-star"></i>
+            </div> <!-- end chat-header -->
 
-            <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-            <i class="fa fa-file-image-o"></i>
+            <div class="chat-history">
+                <ul>
 
-            <button id="sendBtn">Send</button>
+                    <li class="clearfix">
+                        <div class="message-data align-right">
+                            <span class="message-data-time">10:14 AM, Today</span> &nbsp; &nbsp;
+                            <span class="message-data-name">Olia</span> <i class="fa fa-circle me"></i>
 
-        </div> <!-- end chat-message -->
+                        </div>
+                        <div class="message other-message float-right">
+                            Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you
+                            faced
+                            any problems at the last phase of the project?
+                        </div>
+                    </li>
 
-    </div> <!-- end chat -->
+                    <li>
+                        <div class="message-data">
+                            <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+                            <span class="message-data-time">10:20 AM, Today</span>
+                        </div>
+                        <div class="message my-message">
+                            Actually everything was fine. I'm very excited to show this to our team.
+                        </div>
+                    </li>
 
-</div> <!-- end container -->
+                </ul>
 
-<script id="message-template" type="text/x-handlebars-template">
+            </div> <!-- end chat-history -->
+
+            <div class="chat-message clearfix">
+                <textarea id="message-to-send" name="message-to-send" placeholder="Type your message"
+                    rows="3"></textarea>
+
+                <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-file-image-o"></i>
+
+                <button id="sendBtn">Send</button>
+
+            </div> <!-- end chat-message -->
+
+        </div> <!-- end chat -->
+
+    </div> <!-- end container -->
+
+    <script id="message-template" type="text/x-handlebars-template">
     <li class="clearfix">
         <div class="message-data align-right">
             <span class="message-data-time">{{time}}, Today</span> &nbsp; &nbsp;
@@ -115,7 +113,7 @@
     </li>
 </script>
 
-<script id="message-response-template" type="text/x-handlebars-template">
+    <script id="message-response-template" type="text/x-handlebars-template">
     <li>
         <div class="message-data">
             <span class="message-data-name"><i class="fa fa-circle online"></i> {{userName}}</span>
@@ -127,7 +125,7 @@
     </li>
 </script>
 
-<script src="./js/custom.js"></script>
-<script src="./js/chat.js"></script>
+    <script src="./js/chat.js"></script>
 </body>
+
 </html>

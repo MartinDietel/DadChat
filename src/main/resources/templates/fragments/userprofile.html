@@ -1,0 +1,92 @@
+<div th:fragment="userprofile" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <meta name="_csrfUser" th:content="${_csrf.token}"/>
+    <meta name="_csrf_headerUser" th:content="${_csrf.headerName}"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/userprofile.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.3/css/simple-line-icons.css">
+    <script src="/js/userprofile.js"></script>
+
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div sec:authorize="isAuthenticated()" style="display:none;">
+            <span id="loggedInUserName" th:text="${#authentication.getName()}"></span>
+        </div>
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <button class='btn btn-secondary' id="updateAccountBtn" href="">
+                    Update Account
+                </button>
+                <button class='btn btn-secondary' id="friendsBtn" href="">
+                    Friends
+                </button>
+                    <div class="container mt-5" id="userContainer">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-7 cardCol">
+                                <div class="card p-3 py-4 userCard">
+
+
+                                    <div class="list-wrapper" id="friendListWrapper">
+                                        <ul class="list" id="friendList">
+
+                                        </ul>
+                                    </div>
+
+                                    <li class="list-item friendListItem" id="friendListItem0" style="display: none">
+                                        <div>
+                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/488320/profile/profile-80.jpg" class="list-item-image">
+                                        </div>
+                                        <div class="list-item-content">
+                                            <h4 id="friendListItemName0">Hitesh Kumar</h4>
+                                            <p id="friendListUsername0" class="text-muted">username</p>
+                                        </div>
+                                        <button class="btn btn-secondary px-4 ms-3 usernameLinks friendProfileBtn" id="listFriendProfileBtn0" data-username="">Profile</button>
+                                    </li>
+
+
+                                    <a href='#' class='profile-img text-center' id="profileHoverA" >
+                                        <label for="imageInput">
+                                        <img src='https://i.imgur.com/bDLhJiP.jpg' width="100" class="rounded-circle">
+                                        <div class='cover'>
+                                            <i class='icon-camera'></i>
+                                            <input id = "imageInput" type='file' style="display:none;" accept="image/*" name="imageInput"/>
+                                        </div>
+                                        </label>
+                                    </a>
+
+                                    <div class="text-center" id= "profileImageDiv"> <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle"> </div>
+
+
+
+
+                                    <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white" style="display: none" id="userTag">Friend</span>
+                                        <h5 class="mt-2 mb-0" id="userFullName"></h5> <span id="userCreatedOn">Dad guy</span>
+                                        <div class="px-4 mt-1" id="userDesc">
+                                            <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                        </div>
+                                        <div class="px-4 mt-1">
+                                            <textarea id="userDescEdit" >
+
+                                            </textarea>
+                                        </div>
+                                            <div class="buttons" id="userOtherButtons" style="display: none" > <button class="btn btn-outline-secondary px-4" onclick="location.href='/chat';" >Message</button> <button class="btn btn-secondary px-4 ms-3" id="addFriendBtn" >Add Friend</button> <button class="btn btn-secondary px-4 ms-3" id="removeFriendBtn" >Remove Friend</button></div>
+                                            <div class="buttons" id="userSelfButtons"  style="display: none"> <button class="btn btn-outline-secondary px-4" id="editProfileBtn">Edit Profile</button></div>
+                                            <div class="buttons" id="userEditButtons" style="display: none" > <button class="btn btn-outline-secondary px-4" id="cancelBtn">Cancel</button> <button class="btn btn-secondary px-4 ms-3" id="saveBtn" >Save</button> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>

@@ -39,7 +39,7 @@ spring:
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQL81Dialect
-                format_sql: true
+                format-sql: true
         show-sql: true
     main:
         banner-mode: 'off'
@@ -59,4 +59,3 @@ spring:
             enabled: DETECT
 server:
     port: 8082
-

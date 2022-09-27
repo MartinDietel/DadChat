@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
@@ -140,14 +142,13 @@ ul {
 .chat .chat-history .message:after {
     bottom: 100%;
     left: 7%;
-    border: solid transparent;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
+    border: 10px solid transparent;
     border-bottom-color: #86BB71;
-    border-width: 10px;
     margin-left: -10px;
 }
 
@@ -178,7 +179,8 @@ ul {
     resize: none;
 }
 
-.chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
+.chat .chat-message .fa-file-o,
+.chat .chat-message .fa-file-image-o {
     font-size: 16px;
     color: gray;
     cursor: pointer;
@@ -199,7 +201,9 @@ ul {
     color: #75b1e8;
 }
 
-.online, .offline, .me {
+.online,
+.offline,
+.me {
     margin-right: 3px;
     font-size: 10px;
 }

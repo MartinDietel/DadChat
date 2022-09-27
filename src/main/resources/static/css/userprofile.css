@@ -1,0 +1,178 @@
+
+.userCard {
+    border: none;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer
+}
+
+.fonts {
+    font-size: 11px
+}
+
+.social-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0
+}
+
+.social-list li {
+    padding: 10px;
+    color: #617886;
+    font-size: 19px
+}
+
+.buttons button:nth-child(1) {
+    border: 1px solid #8ba9b4 !important;
+    color: #617886;
+    height: 40px
+}
+
+.buttons button:nth-child(1):hover {
+    border: 1px solid #617886 !important;
+    color: #8ba9b4 ;
+    height: 40px;
+    background-color: #617886
+}
+
+.buttons button:nth-child(2) {
+    border: 1px solid #617886 !important;
+    background-color: #617886;
+
+    height: 40px
+}
+.modal-dialog { top: 7rem !important; }
+
+.mt-5{
+    margin-top: 0.5rem!important;
+}
+#userContainer{
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+
+
+
+.cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding-top:30%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: all .300s cubic-bezier(.07,.76,.4,.88);
+
+}
+
+.cover:hover {
+    opacity: 1;
+    padding-top: 0;
+    transition: all 500ms ease;
+}
+
+.icon-camera {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    font-size: 34px;
+    color: #424242;
+    border-radius: 50%;
+    background-color: rgba(224,224,224 ,.7);
+    box-shadow: 0px 0px 1px 1px #617886;
+}
+
+#profileHoverA{
+    display: none;
+    position: relative;
+}
+
+#profileImageDiv{
+    display: none;
+}
+#updateAccountBtn{
+    display: none;
+    width: fit-content;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    z-index: 1;
+    background-color: #617886;
+
+    border: 1px solid #617886 !important;
+}
+
+#friendsBtn{
+    display: none;
+    width: fit-content;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    z-index: 1;
+    background-color: #617886;
+
+    border: 1px solid #617886 !important;
+}
+
+#addFriendBtn{
+    display: none;
+}
+#removeFriendBtn{
+    display: none;
+}
+
+.cardCol{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#userDescEdit{
+    display: none;
+    width: 100%;
+    height: 120px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#friendListWrapper {
+    overflow: auto;
+    display: none;
+    height: 400px;
+}
+
+#friendList {
+    border-radius: 2px;
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.friendListItem {
+    display: flex;
+    margin: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.friendProfileBtn{
+    margin-left: auto;
+    height: fit-content;
+    align-self: center;
+}

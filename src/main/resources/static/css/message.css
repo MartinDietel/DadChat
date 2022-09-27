@@ -1,7 +1,8 @@
-html,body {
-    height:100% !important;
-    min-height:100% !important;
-    max-height:100% !important;
+html,
+body {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
     width: 100% !important;
     margin: 0 !important;
 }
@@ -10,20 +11,19 @@ body {
     background-color: #cccccc !important;
 }
 
+#wrapper {
 
-#wrapper{
-
-    max-width:1600px !important;
+    max-width: 1600px !important;
     min-height: 570px !important;
     max-height: 700px !important;
-    display:flex !important;
+    display: flex !important;
     margin: auto !important;
     color: #617886 !important;
     justify-content: center !important;
     font-size: 13px !important;
 }
 
-#left_panel{
+#left_panel {
 
     min-height: 500px !important;
     background-color: #2f3238 !important;
@@ -33,58 +33,58 @@ body {
 
 }
 
-#profile_image{
+#profile_image {
 
     height: 50% !important;
     width: 50% !important;
     border: solid thin white !important;
     border-radius: 50% !important;
-    margin:10px !important;
+    margin: 10px !important;
 
 }
 
-#left_panel label{
+#left_panel label {
 
     width: 97% !important;
     height: 20px !important;
     display: block !important;
     background-color: #3c434b !important;
-    border-bottom:solid thin #ffffff55 !important;
+    border-bottom: solid thin #ffffff55 !important;
     cursor: pointer !important;
     padding: 5px !important;
     transition: all 1s ease !important;
     box-sizing: content-box !important;
 }
 
-#left_panel label:hover{
+#left_panel label:hover {
 
     background-color: #778593 !important;
 }
 
-#left_panel label img{
+#left_panel label img {
 
     float: right !important;
-    width:25px !important;
+    width: 25px !important;
 }
 
-#right_panel{
+#right_panel {
 
     min-height: 500px !important;
     flex: 4 !important;
     text-align: center !important;
 }
 
-#header{
+#header {
 
     background-color: #2f3238 !important;
-    height:70px !important;
+    height: 70px !important;
     font-size: 40px !important;
     text-align: center !important;
     position: relative !important;
     padding-top: 4px;
 }
 
-#inner_left_panel{
+#inner_left_panel {
 
     background-color: #383e48 !important;
     flex: 1 !important;
@@ -94,7 +94,7 @@ body {
 }
 
 
-#inner_right_panel{
+#inner_right_panel {
 
     background-color: #f2f7f8 !important;
     flex: 2.6 !important;
@@ -103,17 +103,17 @@ body {
 }
 
 
-#radio_contacts:checked ~ #inner_right_panel{
+#radio_contacts:checked~#inner_right_panel {
 
     flex: 0 !important;
 }
 
-#radio_settings:checked ~ #inner_right_panel{
+#radio_settings:checked~#inner_right_panel {
 
     flex: 0 !important;
 }
 
-#contact{
+#contact {
     width: 100px !important;
     height: 120px !important;
     margin: 10px !important;
@@ -121,13 +121,13 @@ body {
     vertical-align: top !important;
 }
 
-#contact img{
+#contact img {
 
     width: 100px !important;
     height: 100px !important;
 }
 
-#active_contact{
+#active_contact {
 
     height: 70px !important;
     margin: 10px !important;
@@ -136,39 +136,39 @@ body {
     color: #617886 !important;
 }
 
-#active_contact img{
+#active_contact img {
 
     width: 70px !important;
     height: 70px !important;
-    float:left !important;
+    float: left !important;
 }
 
-#message_left{
+#message_left {
 
     margin: 10px !important;
-    padding-right:10px !important;
+    padding-right: 10px !important;
     background-color: #3c5096 !important;
     color: #aaa !important;
-    float:left !important;
-    box-shadow: 0px 0px 10px #aaa !important;
+    float: left !important;
+    box-shadow: 0 0 10px #aaa !important;
     border-bottom-left-radius: 40% !important;
     border-top-right-radius: 25% !important;
     position: relative !important;
-    width:40% !important;
+    width: 40% !important;
     min-width: 200px !important;
 }
 
-#message_left img{
+#message_left img {
 
     width: 60px !important;
     height: 60px !important;
-    float:left !important;
-    margin:2px !important;
+    float: left !important;
+    margin: 2px !important;
     border-radius: 50% !important;
     border: solid 2px white !important;
 }
 
-#message_left div{
+#message_left div {
 
     width: 20px !important;
     height: 20px !important;
@@ -176,72 +176,72 @@ body {
     border: solid 2px white !important;
     border-radius: 50% !important;
     position: absolute !important;
-    left:-10px !important;
-    top:20px !important;
+    left: -10px !important;
+    top: 20px !important;
 }
 
-#message_right{
+#message_right {
 
     margin: 10px !important;
-    padding-right:10px !important;
+    padding-right: 10px !important;
     background-color: #fbffee !important;
     color: #444 !important;
-    float:right !important;
+    float: right !important;
     box-sizing: content-box !important;
-    box-shadow: 0px 0px 10px #aaa !important;
+    box-shadow: 0 0 10px #aaa !important;
     border-bottom-right-radius: 40% !important;
     border-top-left-radius: 25% !important;
     position: relative !important;
-    width:40% !important;
+    width: 40% !important;
     min-width: 200px !important;
 }
 
-#message_right img{
+#message_right img {
 
     width: 60px !important;
     height: 60px !important;
-    float:left !important;
-    margin:2px !important;
+    float: left !important;
+    margin: 2px !important;
     border-radius: 50% !important;
     border: solid 2px white !important;
 }
 
-#message_right div img{
+#message_right div img {
 
     width: 25px !important;
     height: 18px !important;
-    float:none !important;
-    margin:0 !important;
+    float: none !important;
+    margin: 0 !important;
     border-radius: 50% !important;
     border: none !important;
-    position:absolute !important;
-    top:30px !important;
-    right:10px !important;
+    position: absolute !important;
+    top: 30px !important;
+    right: 10px !important;
 }
 
-#message_right #trash{
+#message_right #trash {
 
     width: 20px !important;
     height: 20px !important;
-    position:absolute !important;
-    top:15px !important;
-    left:-10px !important;
+    position: absolute !important;
+    top: 15px !important;
+    left: -10px !important;
     cursor: pointer !important;
 }
 
-#message_left #trash{
+#message_left #trash {
 
     width: 20px !important;
     height: 20px !important;
-    position:absolute !important;
+    position: absolute !important;
     box-sizing: unset !important;
-    top:15px !important;
-    right:-10px !important;
+    top: 15px !important;
+    right: -10px !important;
     cursor: pointer !important;
 }
 
 
-#message_right div{
+#message_right div {
 
     width: 20px !important;
     height: 20px !important;
@@ -249,17 +249,17 @@ body {
     border: solid 2px white !important;
     border-radius: 50% !important;
     position: absolute !important;
-    right:-10px !important;
-    top:20px !important;
+    right: -10px !important;
+    top: 20px !important;
 }
 
-#messages_holder_parent{
-    height:630px !important;
+#messages_holder_parent {
+    height: 630px !important;
 }
 
-#messages_holder{
-    height:556px !important;
-    overflow-y:scroll !important;
+#messages_holder {
+    height: 556px !important;
+    overflow-y: scroll !important;
     overflow-x: hidden !important;
 }
 
@@ -267,61 +267,72 @@ body {
     padding: 10px !important;
 }
 
-.image_on{
+.image_on {
 
     position: absolute !important;
     height: 450px !important;
     width: 450px !important;
-    margin:auto !important;
+    margin: auto !important;
     z-index: 10 !important;
-    top:50px !important;
-    left:50px !important;
+    top: 50px !important;
+    left: 50px !important;
 }
 
-.image_off{
+.image_off {
 
     display: none !important;
 }
 
-@keyframes appear{
+@keyframes appear {
 
-    0%{opacity:0;transform: translateY(50px) rotate(5deg) !important;transform-origin:100% 100% !important;}
-    100%{opacity:1;transform: translateY(0px) rotate(0deg) !important;transform-origin:100% 100%; !important}
+    0% {
+        opacity: 0;
+        transform: translateY(50px) rotate(5deg) !important;
+        transform-origin: 100% 100% !important;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) rotate(0deg) !important;
+        transform-origin: 100% 100% !important;
+    }
 }
 
-form{
+form {
     text-align: left !important;
     margin: auto !important;
     padding: 10px !important;
     max-width: 400px !important;
 }
 
-input[type=text],input[type=password],input[type=button]{
+input[type=text],
+input[type=password],
+input[type=button] {
 
-    padding:10px !important;
+    padding: 10px !important;
     margin: 10px !important;
-    width:200px !important;
+    width: 200px !important;
     border-radius: 5px !important;
-    border:solid 1px grey !important;
+    border: solid 1px grey !important;
 }
 
-input[type=button]{
+input[type=button] {
 
     width: 220px !important;
     cursor: pointer !important;
     background-color: #617886 !important;
     color: #8ba9b4 !important;
-    border:solid 1px grey !important;
+    border: solid 1px grey !important;
     border-radius: 5px !important;
 }
 
-input[type=radio]{
+input[type=radio] {
 
     transform: scale(1.2) !important;
     cursor: pointer !important;
 }
 
-#error{
+#error {
 
     text-align: center !important;
     padding: 0.5em !important;
@@ -330,41 +341,41 @@ input[type=radio]{
     display: none !important;
 }
 
-.dragging{
+.dragging {
     border: dashed 2px #aaa !important;
 }
 
-#change_image_button{
-    background-color:#2f3238 !important;
+#change_image_button {
+    background-color: #2f3238 !important;
     color: #617886 !important;
-    display:inline-block !important;
-    padding:10px !important;
-    border-radius:5px !important;
-    border:solid 1px grey !important;
-    cursor:pointer !important;
+    display: inline-block !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    border: solid 1px grey !important;
+    cursor: pointer !important;
 }
 
-#message_text{
-    flex:6 !important;
-    border:solid thin #ccc !important;
+#message_text {
+    flex: 6 !important;
+    border: solid thin #ccc !important;
     margin: 0 !important;
-    font-size:14px !important;
-    padding:4px !important;
+    font-size: 14px !important;
+    padding: 4px !important;
 }
 
-#send_message_button{
-    flex:1 !important;
-    cursor:pointer !important;
+#send_message_button {
+    flex: 1 !important;
+    cursor: pointer !important;
     margin: 0 !important;
     width: 220px !important;
     background-color: #617886 !important;
     color: #8ba9b4 !important;
-    border:solid 1px grey !important;
+    border: solid 1px grey !important;
     border-radius: 5px !important;
 }
 
-#user_image_details{
-    margin:auto !important;
+#user_image_details {
+    margin: auto !important;
     padding: 10px !important;
 }
 
@@ -379,7 +390,7 @@ input[type=radio]{
     font-weight: 500;
 }
 
-.center{
+.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -396,9 +407,13 @@ input[type=radio]{
     height: calc(100% - 150px);
 }
 
-/*#messages_holder_parent #messageDiv {*/
-/*    padding: 20px;*/
-/*}*/
+#messages_holder_parent #messageDiv {
+    display: inline-flex !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 38px !important;
+}
 
 #messages_holder_parent ul li {
     line-height: 1.5rem;
@@ -480,18 +495,3 @@ input[type=radio]{
         width: calc(100% - 90px);
     }
 }
-
-/*#messageDiv input {*/
-/*    float: left;*/
-/*    width: calc(100% - 85px);*/
-/*}*/
-
-/*#messageDiv button {*/
-/*    float: left;*/
-/*    width: 80px;*/
-/*    height: 38px;*/
-/*    margin-left: 5px;*/
-/*}*/
-
-
-

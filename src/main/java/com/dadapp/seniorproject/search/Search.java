@@ -20,21 +20,10 @@ public class Search {
     private final static Logger log = LoggerFactory.getLogger(Search.class);
 
     @Id
-    @SequenceGenerator(
-            name = "search_sequence",
-            sequenceName = "search_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "search_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long searchId;
 
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "review_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long reviewId;
 
     private int zipcode;
@@ -57,8 +46,8 @@ public class Search {
     @BooleanFlag
     private boolean supportCheck;
 
-
-    public Search(Long searchId, int zipcode, String result, Long reviewId, boolean doctorCheck, boolean lawyerCheck, boolean daycareCheck, boolean supportCheck) {
+    public Search(Long searchId, int zipcode, String result, Long reviewId, boolean doctorCheck, boolean lawyerCheck,
+            boolean daycareCheck, boolean supportCheck) {
         this.searchId = searchId;
         this.zipcode = zipcode;
         this.result = result;
@@ -69,8 +58,8 @@ public class Search {
         this.supportCheck = supportCheck;
     }
 
-
-    public Search(int zipcode, String result, boolean doctorCheck, boolean lawyerCheck, boolean daycareCheck, boolean supportCheck) {
+    public Search(int zipcode, String result, boolean doctorCheck, boolean lawyerCheck, boolean daycareCheck,
+            boolean supportCheck) {
         this.zipcode = zipcode;
         this.result = result;
         this.doctorCheck = doctorCheck;

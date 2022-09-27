@@ -15,8 +15,6 @@ public interface MessageService {
 
 	List<ChatMessage> findAllByUsers(String sender, String recipient);
 
-	Page<ChatMessage> findAllByUsers(int page, String sender, String recipient);
-
 	List<ChatMessage> findAllByUserAndSessionId(String user, String sessionId);
 
 }

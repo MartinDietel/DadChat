@@ -11,10 +11,15 @@ import java.util.List;
 @Repository
 public interface MessageRepo extends JpaRepository<ChatMessage, Long> {
 
-
     @Query(value = "SELECT content, sender, recipient FROM ChatMessage WHERE ((sender = :sender AND recipient = :recipient) OR (sender = :recipient AND recipient = :sender)) order by id")
     List<ChatMessage> findAllByUsers(@Param("sender") String sender, @Param("recipient") String recipient);
 
     @Query("select c from ChatMessage c where c.sender = ?1 and c.channel = ?2")
     List<ChatMessage> findAllBySenderAndAndChannel(@Param("sender") String sender, @Param("channel") String channel);
+
+    @Query(value = "select * from chat_message where sender = ?1 or recipient = ?1", nativeQuery = true)
+    List<ChatMessage> findMessages(String sender, String recipient);
+
+    @Query(value = "SELECT content FROM ChatMessage WHERE ((sender = :sender AND recipient = :recipient) OR (sender = :recipient AND recipient = :sender)) order by id")
+    List<ChatMessage> findChatMessageBySenderAndRecipient(String sender, String recipient);
 }
