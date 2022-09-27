@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:cursor="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>DadApp - We're In This Together</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/message.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity=""
+            crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+
+<style>
+
+    @font-face{
+
+        font-family: headFont;
+        src: url(/fonts/Summer-Vibes-OTF.otf);
+    }
+
+    @font-face{
+
+        font-family: myFont;
+        src: url(/fonts/OpenSans-Regular.ttf);
+    }
+
+</style>
+
+        <div id="wrapper">
+
+            <div id="left_panel">
+
+                <div id="user_info">
+                    <img id="profile_image" src="./images/user_male.jpg" style="height: 100px;width: 100px;">
+                    <br>
+                    <span id="username" th:value="${user}" th:text="${user}"></span>
+                    <br>
+                    <span id="email" style="font-size: 12px;opacity: 0.5;"></span>
+
+                    <br>
+                    <br>
+                    <br>
+                    <div>
+                        <label id="label_chat" for="radio_chat">Chat <img src="/icons/chat.png"></label>
+                        <label id="label_contacts" for="radio_contacts">Contacts <img src="/icons/contacts.png"></label>
+                        <label id="label_settings" for="radio_settings">Settings <img src="/icons/settings.png"></label>
+                    </div>
+                    <br>
+                    <br>
+                    <a href="/" style="color: rgba(255,255,255,0.52); font-family: myFont; font-size: 14px">Return to Home Screen</a>
+
+                </div>
+
+            </div>
+            <div id="right_panel">
+                <div id="header">
+                    <div id="image_viewer" class="image_on"></div>
+                    DadApp Chat
+                </div>
+
+                <div id="container" style="display: flex; ">
+
+                    <div id="inner_left_panel">
+                        <div id="active_contact" style="cursor:pointer">
+                            <img src="/images/user_male.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <input type="radio" id="radio_chat" name="myradio" style="display: none; ">
+                    <input type="radio" id="radio_contacts" name="myradio" style="display: none; ">
+                    <input type="radio" id="radio_settings" name="myradio" style="display: none; ">
+
+                    <div id="inner_right_panel">
+                        <div id='messages_holder_parent' style='height:572px;'>
+                            <div id='messages_holder' style='height:572px;overflow-y:scroll;'>
+                                <script id="message-response-template" type="text/x-handlebars-template">
+                                    <li>
+                                        <div class="message-data">
+                                            <span class="message-data-name"><i class="fa fa-circle online"></i> {{userName}}</span>
+                                            <span class="message-data-time">{{time}}, Today</span>
+                                        </div>
+                                        <div class="message my-message">
+                                            {{response}}
+                                        </div>
+                                    </li>
+                                </script>
+                            </div>
+                            <span style='color:#3c5096' cursor:pointer;><b>Delete This Thread</b></span>
+                            <div style='display: flex; width:100%; height:40px'>
+                                <label for='message_file'><img src='/icons/clip.png' style='opacity:0.8;width:30px;margin:5px;cursor:pointer;'></label>
+                                <input type='file' id='message_file' name='file' style='display:none' />
+                                <input id='message_text' onkeyup='addMessageEnter(event)' type='text' placeholder='Type Your Message'/>
+                                <input id='send_message_button' type='button' value='send'/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="fragments/footer :: footer"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+        <script src="/js/message.js"></script>
+</body>
+</html>

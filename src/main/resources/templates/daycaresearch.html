@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>Daycare</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity=""
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="/css/mapstyling.css" />
+    <script src="/js/daycaresearch.js"></script>
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+
+<div id="panel"></div>
+
+<div id="map"></div>
+
+
+
+<h1 style="text-align: center; padding-top: 300px;">Search For a Daycare You Can Trust</h1>
+
+<div class="input-group rounded" style="width: 25%; margin-left: auto; margin-right: auto; padding-top: 30px" >
+    <input type="search" class="form-control rounded" placeholder="Enter your zipcode" aria-label="Search"
+           aria-describedby="search-addon" />
+    <span class="input-group-text border-0" id="search-addon">
+        <button type="button" class="btn btn-outline-dark">search</button>
+    <i class="fas fa-search"></i>
+  </span>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACImiF5w_GKuFWacqcUiDOsklgAKU16lQ&libraries=places&callback=initMap"></script>
+</body>
+</html>

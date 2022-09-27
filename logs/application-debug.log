@@ -1,0 +1,115 @@
+2022-03-12 12:25:07.339  INFO 21496 --- [restartedMain] c.d.seniorproject.DadappApplication      : Starting DadappApplication using Java 11.0.11 on DESKTOP-O5O1A7F with PID 21496 (D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes started by NateD in D:\NateD\Documents\GitHub\seniorproject\seniorproject)
+2022-03-12 12:25:07.394  INFO 21496 --- [restartedMain] c.d.seniorproject.DadappApplication      : No active profile set, falling back to default profiles: default
+2022-03-12 12:25:07.454  INFO 21496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-12 12:25:07.455  INFO 21496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-12 12:25:07.699  WARN 21496 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.dadapp.seniorproject.DadappApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userValidator' for bean class [com.dadapp.seniorproject.user.UserValidator] conflicts with existing, non-compatible bean definition of same name and class [com.dadapp.seniorproject.config.security.UserValidator]
+2022-03-12 12:25:07.729 ERROR 21496 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.dadapp.seniorproject.DadappApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userValidator' for bean class [com.dadapp.seniorproject.user.UserValidator] conflicts with existing, non-compatible bean definition of same name and class [com.dadapp.seniorproject.config.security.UserValidator]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332) ~[spring-boot-2.5.4.jar:2.5.4]
+	at com.dadapp.seniorproject.DadappApplication.main(DadappApplication.java:20) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.5.4.jar:2.5.4]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userValidator' for bean class [com.dadapp.seniorproject.user.UserValidator] conflicts with existing, non-compatible bean definition of same name and class [com.dadapp.seniorproject.config.security.UserValidator]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:296) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175) ~[spring-context-5.3.15.jar:5.3.15]
+	... 18 common frames omitted
+
+2022-03-12 12:41:11.460  INFO 20296 --- [restartedMain] c.d.seniorproject.DadappApplication      : Starting DadappApplication using Java 11.0.11 on DESKTOP-O5O1A7F with PID 20296 (D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes started by NateD in D:\NateD\Documents\GitHub\seniorproject\seniorproject)
+2022-03-12 12:41:11.467  INFO 20296 --- [restartedMain] c.d.seniorproject.DadappApplication      : No active profile set, falling back to default profiles: default
+2022-03-12 12:41:11.468 DEBUG 20296 --- [restartedMain] o.s.boot.SpringApplication               : Loading source class com.dadapp.seniorproject.DadappApplication
+2022-03-12 12:41:11.526 DEBUG 20296 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : Matching URLs for reloading : [file:/D:/NateD/Documents/GitHub/seniorproject/seniorproject/target/classes/]
+2022-03-12 12:41:11.526 DEBUG 20296 --- [restartedMain] o.s.b.d.settings.DevToolsSettings        : Included patterns for restart : []
+2022-03-12 12:41:11.526 DEBUG 20296 --- [restartedMain] o.s.b.d.settings.DevToolsSettings        : Excluded patterns for restart : [/spring-boot-starter-[\w-]+/, /spring-boot/(bin|build|out)/, /spring-boot-starter/(bin|build|out)/, /spring-boot-devtools/(bin|build|out)/, /spring-boot-actuator/(bin|build|out)/, /spring-boot-autoconfigure/(bin|build|out)/]
+2022-03-12 12:41:11.527  INFO 20296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-03-12 12:41:11.527  INFO 20296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-03-12 12:41:11.527 DEBUG 20296 --- [restartedMain] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7f37b096
+2022-03-12 12:41:11.554 DEBUG 20296 --- [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2022-03-12 12:41:11.605 DEBUG 20296 --- [restartedMain] o.s.b.f.s.DefaultListableBeanFactory     : Creating shared instance of singleton bean 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory'
+2022-03-12 12:41:11.740 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\DadappController.class]
+2022-03-12 12:41:11.752 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\chat\controller\ChatController.class]
+2022-03-12 12:41:11.771 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\chat\repo\MessageRepo.class]
+2022-03-12 12:41:11.774 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\chat\service\MessageServiceImpl.class]
+2022-03-12 12:41:11.776 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\CommandLineRunnerImpl.class]
+2022-03-12 12:41:11.779 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\WSChatEventListener.class]
+2022-03-12 12:41:11.784 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\WsConfig.class]
+2022-03-12 12:41:11.788 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\datasource\PostgresDatasource.class]
+2022-03-12 12:41:11.790 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\security\SecurityServiceImpl.class]
+2022-03-12 12:41:11.795 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\security\UserDetailsServiceImpl.class]
+2022-03-12 12:41:11.799 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\security\UserValidator.class]
+2022-03-12 12:41:11.809 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\config\security\WebSecurityConfig.class]
+2022-03-12 12:41:11.819 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\event\EventCLR.class]
+2022-03-12 12:41:11.822 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\event\EventController.class]
+2022-03-12 12:41:11.823 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\event\EventRepo.class]
+2022-03-12 12:41:11.824 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\event\EventService.class]
+2022-03-12 12:41:11.836 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\review\ReviewController.class]
+2022-03-12 12:41:11.837 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\review\ReviewRepo.class]
+2022-03-12 12:41:11.839 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\review\ReviewService.class]
+2022-03-12 12:41:11.843 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\search\SearchCLR.class]
+2022-03-12 12:41:11.850 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\search\SearchController.class]
+2022-03-12 12:41:11.852 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\search\SearchRepo.class]
+2022-03-12 12:41:11.853 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\search\SearchService.class]
+2022-03-12 12:41:11.855 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\user\ActiveUserManager.class]
+2022-03-12 12:41:11.856 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\user\IUserRetrofitDAO.class]
+2022-03-12 12:41:11.857 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\user\IUserService.class]
+2022-03-12 12:41:11.874 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\user\UserController.class]
+2022-03-12 12:41:11.875 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Ignored because not a concrete top-level class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\user\UserRepo.class]
+2022-03-12 12:41:11.880 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\user\UserService.class]
+2022-03-12 12:41:11.881 DEBUG 20296 --- [restartedMain] o.s.c.a.ClassPathBeanDefinitionScanner   : Identified candidate component class: file [D:\NateD\Documents\GitHub\seniorproject\seniorproject\target\classes\com\dadapp\seniorproject\user\UserValidator.class]
+2022-03-12 12:41:11.901  WARN 20296 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.dadapp.seniorproject.DadappApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userValidator' for bean class [com.dadapp.seniorproject.user.UserValidator] conflicts with existing, non-compatible bean definition of same name and class [com.dadapp.seniorproject.config.security.UserValidator]
+2022-03-12 12:41:11.936 DEBUG 20296 --- [restartedMain] o.s.boot.devtools.restart.Restarter      : Creating new Restarter for thread Thread[main,5,main]
+2022-03-12 12:41:11.937 DEBUG 20296 --- [restartedMain] o.s.boot.devtools.restart.Restarter      : Immediately restarting application
+2022-03-12 12:41:11.939 DEBUG 20296 --- [restartedMain] o.s.boot.devtools.restart.Restarter      : Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@423c1633
+2022-03-12 12:41:11.939 DEBUG 20296 --- [restartedMain] o.s.boot.devtools.restart.Restarter      : Starting application com.dadapp.seniorproject.DadappApplication with URLs [file:/D:/NateD/Documents/GitHub/seniorproject/seniorproject/target/classes/]
+2022-03-12 12:41:12.029 ERROR 20296 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.dadapp.seniorproject.DadappApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userValidator' for bean class [com.dadapp.seniorproject.user.UserValidator] conflicts with existing, non-compatible bean definition of same name and class [com.dadapp.seniorproject.config.security.UserValidator]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-2.5.4.jar:2.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332) ~[spring-boot-2.5.4.jar:2.5.4]
+	at com.dadapp.seniorproject.DadappApplication.main(DadappApplication.java:13) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.5.4.jar:2.5.4]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'userValidator' for bean class [com.dadapp.seniorproject.user.UserValidator] conflicts with existing, non-compatible bean definition of same name and class [com.dadapp.seniorproject.config.security.UserValidator]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:296) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207) ~[spring-context-5.3.15.jar:5.3.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175) ~[spring-context-5.3.15.jar:5.3.15]
+	... 18 common frames omitted
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:cursor="http://www.w3.org/1999/xhtml">
+<div th:insert="fragments/head :: head"></div>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/message.css" />
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<div id="wrapper">
+    <div id="left_panel">
+        <div id="user_info" th:value="${userInfo}">
+            <img id="profile_image" src="images/user_male.jpg" style="height: 100px;width: 100px;" />
+            <input id="currentUserId" type="hidden" th:value="${userInfo.getId()}" />
+            <br/>
+            <span id="username" th:text="${userInfo.getUsername()}"></span>
+            <br/>
+            <br/>
+            <span id="email" th:text="${userInfo.getEmail()}"></span>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div>
+            <label id="label_chat" for="radio_chat">Chat <img src="icons/chat.png" alt="" /></label>
+            <label id="label_contacts" for="radio_contacts">Contacts <img src="icons/contacts.png" alt="" /></label>
+            <label id="label_settings" for="radio_settings">Settings <img src="icons/settings.png" alt="" /></label>
+        </div>
+        <br/>
+        <br/>
+    </div>
+    <div id="right_panel">
+        <div id="container" style="display: flex;">
+            <div id="header" style="font-family: cursive; display: none">
+                <div id="image_viewer" class="image_on"></div>
+                DadChat
+            </div>
+            <div id="inner_left_panel">
+                <div th:if="${recipient.getUsername()} != ${userInfo.getUsername()}" th:each="recipient : ${userList}" id="contact" style="cursor:pointer;">
+                    <input th:id="${recipient.getId()}" type="hidden" class="recipientId" th:value="${recipient.id}" />
+                    <a class="active-user" id="active-user" href="javascript:void(0)" th:data-id="${recipient.getUsername()}" onclick="setSelectedUser(this.getAttribute('data-id'))">
+                        <img id="contactsRecipientImage" src="images/user_male.jpg" style="height: 55px;width: 55px; cursor:pointer;"  alt=""/>
+                    </a>
+                    <br/>
+                    <span id="contactsRecipientName" th:value="${recipient.getUsername()}" th:text="${recipient.username}"></span>
+                </div>
+                <div id="active-contact" style="cursor:pointer; display: none;">
+                    <div id="currentRecipientId" class="hidden"></div>
+                    <img id="currentRecipientImage" src="" alt="" />
+                    <br/>
+                    <span id="currentRecipientName"></span>
+                </div>
+            </div>
+
+            <input type="radio" id="radio_chat" name="myradio" style="display: none;" />
+            <input type="radio" id="radio_contacts" name="myradio" style="display: none;" />
+            <input type="radio" id="radio_settings" name="myradio" style="display: none;" />
+
+            <div id="inner_right_panel">
+                <div id='messages_holder_parent'>
+                    <div id="messagesScroll" class="fuck_this_scroll">
+                        <button id="loadMoreBtn" class="btn btn-default" type="submit" style="display: none">Load More</button>
+                        <table class="table table-borderless" id='messages_holder' style="display: flex; table-layout: fixed; flex-direction: column;">
+
+                        </table>
+                    </div>
+                    <span style='color:#3c5096; cursor:pointer'><b>Delete This Thread</b></span>
+                    <form id='messageDiv' style='display: inline-flex !important; padding: 0 !important; max-width:100% !important; width: 100% !important; height:40px !important;'>
+                        <label for='message_file'><img src='icons/clip.png' style='opacity:0.8;width:30px;margin:5px;cursor:pointer;' /></label>
+                        <input type='file' id='message_file' name='file' style='display:none' />
+                        <label for='message_text'></label>
+                        <input id='message_text' class="form-control" type='text' placeholder='Type Your Message' autocomplete="off" />
+                        <input id='send_message_button' type='submit' value="Send" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="js/chat.js" th:src="@{/js/chat.js}"></script>
+<script src="js/navbar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+#eventCard0{
+    display: none;
+}
+
+#addEventBtn{
+    margin-left: 70%;
+}
+#eventList{
+    list-style-type: none;
+    padding: 0;
+}
+.card{
+    width: 100%;
+    margin: auto;
+}
+
+
+
+
+
+
+
+html, body, .Container
+{
+    height: 100%;
+}
+
+.Container:before
+{
+    content: '';
+    height: 85%;
+}
+
+.Container{
+    padding-top:2px;
+    padding-right: 7px;
+}
+.EventDiv
+{
+    position: relative;
+    z-index: 1;
+
+}
+
+.EventDiv:after
+{
+    content: '';
+    clear: both;
+
+}
+
+.Content
+{
+    position: absolute;
+    height: 85%;
+    overflow: auto;
+}

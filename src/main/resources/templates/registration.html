@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head :: head"></div>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<div th:replace="fragments/pagetitle :: pagetitle"></div>
+
+<div th:fragment="registration" class="container">
+    <form action="#" th:action="@{/registration}" th:object="${userForm}" class="form-signin" method="POST">
+        <div class="form-group">
+            <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control" autofocus th:required>
+            <span class="has-error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control" autofocus th:required>
+            <span class="has-error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="text" th:field="*{zipcode}" placeholder="Zipcode" class="form-control" autofocus th:required>
+            <span class="has-error" th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="date" th:field="*{dob}" placeholder="Date of Birth" class="form-control" autofocus th:required>
+            <span class="has-error" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="text" th:field="*{email}" placeholder="Email" class="form-control" autofocus th:required>
+            <span class="has-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="text" th:field="*{username}" placeholder="Username" class="form-control" autofocus th:required>
+            <span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="password" th:field="*{password}" placeholder="Password" class="form-control" autofocus th:required>
+            <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="password" th:field="*{passwordConfirm}" class="form-control" autofocus th:required
+                   placeholder="Confirm your password">
+            <span class="has-error" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+
+    </form>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+
+
+

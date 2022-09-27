@@ -1,0 +1,56 @@
+<div th:fragment="navbar" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<nav class="navbar navbar-expand-lg pt-3 navbar-dark bg-dark" >
+    <div class="d-flex w-50 order-0">
+        <a class="navbar-brand mr-1" th:href="@{/}">
+            <img src="icons/DadAppTransparentWhiteCropped.png" class="navbar-logo-image" alt=""/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-dark bg-dark" id="dadAppNav">
+        <ul class="nav navbar-nav ml-auto w-100" style="margin-top: auto;">
+            <div class="input-group rounded" style="width: 49%; margin-left: auto; margin-right: 15px;" >
+                <input id="searchInput" type="search" class="form-control rounded" placeholder="Enter your zipcode" aria-label="Search"
+                       aria-describedby="search-addon"  style="height: 90%;" />
+                <span class="input-group-text border-2 bg-dark" id="search-addon" style="height: 90%; padding: 6px 15px; flex-direction: row-reverse;">
+                    <button id="searchBtn" class="btn btn-blue-grey btn-outline-light">Find</button>
+                    <div class="dropdown" >
+
+                        <button class="btn bg-dark text-light nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: auto; margin-right:auto;">Doctors<span class="caret"></span></button>
+                        <ul id="searchType" class="dropdown-menu bg-dark text-light" aria-labelledby="searchDropdown">
+                            <li><a class="dropdown-item" value="doctor">Doctors</a></li>
+                            <li><a class="dropdown-item" value="lawyer">Lawyers</a></li>
+                            <li><a class="dropdown-item" value="daycare">Daycare</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li><a class="dropdown-item" value="support">Support</a></li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/events}">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/chat}">Messages</a>
+            </li>
+            <li class="nav-item active">
+                <div sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+<!--                    <a class="nav-link" th:href="@{/oauth2/authorization/auth0}">Log In</a>-->
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <form id="logoutForm" method="POST" th:action="@{/logout}" style="padding: 0 !important;">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form>
+                    <a class="nav-link" onclick="document.forms['logoutForm'].submit()" style="cursor: pointer;">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+</div>

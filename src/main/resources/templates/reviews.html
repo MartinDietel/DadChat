@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head :: head"></div>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<div th:replace="fragments/pagetitle :: pagetitle"></div>
+<div th:fragment="reviews" align="center">
+    <h1>Review List</h1>
+    <table>
+        <thread>
+            <tr>
+                <th>Username</th>
+                <th>Zipcode</th>
+                <th>Result</th>
+                <th>Review</th>
+            </tr>
+        </thread>
+        <tbody>
+        <tr th:each="review : ${getReviews}">
+            <td th:text=""${review.username}></td>
+            <td th:text=""${review.zipcode}></td>
+            <td th:text=""${review.result}></td>
+            <td th:text=""${review.review}></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+
+

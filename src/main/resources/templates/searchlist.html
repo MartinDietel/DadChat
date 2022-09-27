@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head :: head"></div>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<div th:replace="fragments/pagetitle :: pagetitle"></div>
+<div th:fragment="searchlist" class="container my-2">
+    <table border="2" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Result</th>
+            <th>Zipcode</th>
+            <th>Doctor</th>
+            <th>Lawyer</th>
+            <th>Daycare</th>
+            <th>Support</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="search : ${listSearches}">
+            <td th:text="${search.result}"></td>
+            <td th:text="${search.zipcode}"></td>
+            <td th:text="${search.doctor_check}"></td>
+            <td th:text="${search.lawyer_check}"></td>
+            <td th:text="${search.daycare_check}"></td>
+            <td th:text="${search.support_check}"></td>
+            <td>
+                <a th:href="@{/add/{id}(id=${search.searchId})}" class="btn btn-success">Add</a>
+                <a th:href="@{/edit/{id}(id=${search.searchId})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${search.searchId})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+
+
+
+

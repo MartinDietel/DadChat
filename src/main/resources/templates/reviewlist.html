@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head :: head"></div>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<div th:replace="fragments/pagetitle :: pagetitle"></div>
+<div th:fragment="reviewlist" class="container my-2">
+    <h1>Dad List</h1>
+    <table border="2" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Zipcode</th>
+            <th>Result</th>
+            <th>Review</th>
+            <th>Reviewed On</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="review : ${listReviews}">
+            <td th:text="${review.username}"></td>
+            <td th:text="${review.zipcode}"></td>
+            <td th:text="${review.result}"></td>
+            <td th:text="${review.review}"></td>
+            <td th:text="${review.reviewedon}"></td>
+            <td>
+                <a th:href="@{/add/{id}(id=${review.reviewid})}" class="btn btn-success">Add</a>
+                <a th:href="@{/edit/{id}(id=${review.reviewid})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${review.reviewid})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+

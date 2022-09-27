@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head :: head"></div>
+<body>
+<div th:replace="fragments/pagetitle :: pagetitle"></div>
+<div th:fragment="login">
+<div class="main" style="padding-top: 70px">
+    <div class="col-md-4 col-sm-10" style="margin-right: auto; margin-left: auto;">
+        <div class="login-form">
+            <form class="form-signin" th:action="@{/login}" method="POST">
+                <div class="form-group">
+                    <span th:text="${message}"></span>
+                    <input type="text" name="username" class="form-control" placeholder="User Name" autofocus>
+                    <input type="password" name="password" class="form-control" placeholder="Password" autofocus>
+                    <span class="has-error" th:text="${error}"></span>
+
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <br>
+                    <br>
+                    <h4 class="text-center"><a th:href="@{/registration}">Create an account</a></h4>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+
+

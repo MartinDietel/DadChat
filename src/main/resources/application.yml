@@ -1,0 +1,62 @@
+logging:
+    level:
+        org:
+            springframework: DEBUG
+    file:
+        name: application-debug.log
+        path: /logs
+spring:
+    security:
+        oauth2:
+            client:
+                registration:
+                    auth0:
+                        client-id: DMHw6aVl8FwfGE1cTxbrfzeufswkQY2b
+                        client-secret: aGJZLqY_m2_2spabO4EZC8-avuKSmMCXxqv-zEtjbPCQ7bNVeOtrb4OQlOvahRrt
+                        scope:
+                            - openid
+                            - profile
+                            - email
+                provider:
+                    auth0:
+                        # trailing slash is important!
+                        issuer-uri: https://dev-kes7sg90.us.auth0.com/
+    datasource:
+        password: dadsmeat
+        jdbc-url: jdbc:postgresql://localhost:8800/postgres
+        username: postgres
+    thymeleaf:
+        cache: false
+        enabled: true
+        prefix: classpath:/templates/
+        suffix: .html
+    application:
+        name: DadApp
+    jpa:
+        hibernate:
+            ddl-auto: update
+            use-new-id-generator-mappings: false
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQL81Dialect
+                format_sql: true
+        show-sql: true
+    main:
+        banner-mode: 'off'
+    messages:
+        basename: validation
+    mvc:
+        format:
+            date: yyyy-MM-dd
+            date-time: yyyy-MM-dd HH:mm:ss
+            time: HH:mm:ss
+    sql:
+        init:
+            mode: always
+            platform: postgres
+    output:
+        ansi:
+            enabled: DETECT
+server:
+    port: 8082
+

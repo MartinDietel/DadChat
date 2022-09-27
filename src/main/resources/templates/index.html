@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:insert="fragments/head :: head"></div>
+<head>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<div class="container">
+    <div sec:authorize="isAuthenticated()">
+        <h4 style="text-align: center">Welcome, <span sec:authentication="name"></span></h4>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between">
+    <img src="icons/DadApp-logos_black.png" style="padding-top: 80px;" class="center"/>
+    <div class="Container">
+        <div class="Second">
+            <h2 class="text-dark">Upcoming Events</h2>
+            <div class="Content border border-dark rounded" >
+                <ul id="eventList" ></ul>
+
+                <div class="card text-center text-white bg-dark mb-3" id="eventCard0">
+                    <div class="card-header" id = "eventCategory0">
+                        Category
+                    </div>
+                    <div class="card-body search_section">
+                        <h5 class="card-title" id = "eventTitle0">Title</h5>
+                        <p class="card-text " id = "eventTime0">Event Time </p>
+                        <div  style="display: inline-block">
+                            <p class="card-text" id = "eventAddress0" style="display: inline-block">Address </p>  <a href="#" target="_blank" id="eventMapLink0" class="card-link">Get Directions</a>
+                        </div>
+                        <p class="card-text" id = "eventDescription0">Description</p>
+                        <p class="card-text" id = "eventChildrenAgeRange0">Child Age Range</p>
+                    </div>
+                    <div class="card-footer text-muted" id = "eventTimestampAndUsername0">
+                        timestamp days ago by Username
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+

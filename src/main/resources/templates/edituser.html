@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head :: head"></div>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<div th:replace="fragments/pagetitle :: pagetitle"></div>
+
+
+
+    <div class="container">
+        <hr>
+        <form action="#" th:action="@{/save}" th:object="${user}" method="POST">
+
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" th:field="*{firstname}" placeholder="First Name" class="form-control mb-4 col-4" required>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" th:field="*{lastname}" placeholder="Last Name" class="form-control mb-4 col-4" required>
+
+            <label for="email">Email Name:</label>
+            <input type="text" id="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" th:field="*{username}" placeholder="Username" class="form-control mb-4 col-4" required>
+
+            <label for="password">Password:</label>
+            <input type="text" id="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4" required>
+
+            <label for="zipcode">Zipcode:</label>
+            <input type="text" id="zipcode" th:field="*{zipcode}" placeholder="Zipcode" class="form-control mb-4 col-4" required>
+
+
+            <button type="submit" class="btn btn-info col-2"> Save Customer</button>
+        </form>
+
+        <hr>
+
+        <a th:href="@{/userlist}"> Back to Customer List</a>
+    </div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
+

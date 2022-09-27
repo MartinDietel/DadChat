@@ -1,0 +1,81 @@
+
+#eventCard0{
+    display: none;
+}
+
+
+#eventList{
+    list-style-type: none;
+    padding: 0;
+}
+.card{
+    width: 70%;
+    margin: auto;
+}
+
+
+.right-corder-container {
+    position:fixed;
+    right:20px;
+    bottom:20px;
+}
+
+
+.right-corder-container .right-corder-container-button {
+    height: 62px;
+    width: 62px;
+    border:none;
+    background-color:#6FB583;
+    border-radius: 62px;        /*Transform the square into rectangle, sync that value with the width/height*/
+    transition: all 300ms;      /*Animation to close the button (circle)*/
+    box-shadow:2px 2px 5px rgb(25, 73, 15)  ;
+    cursor:pointer;
+}
+
+
+.right-corder-container .right-corder-container-button span {
+    font-size: 72px;
+    color:white;
+    position: absolute;
+    left: 6px;
+    top: 9px;
+    line-height: 28px;
+}
+
+
+.right-corder-container .right-corder-container-button:hover {
+    transition: all 400ms cubic-bezier(.62,.1,.5,1);
+    width:200px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*
+    Long text appears slowly with an animation. That code prepare the animation by hidding the text.
+    The use of display is not there because it does not work well with CSS3 animation.
+*/
+.right-corder-container .right-corder-container-button .long-text {
+    transition: opacity 1000ms; /*Only the text fadein/fadeout is animated*/
+    opacity:0;                /*By default we do not display the text, we want the text to fade in*/
+    color:white;
+    white-space: nowrap;
+    font-size: 0;             /*Set to 0 to not have overflow on the right of the browser*/
+    width: 0;                 /*Set to 0 to not have overflow on the right of the browser*/
+    margin:0;                 /*Set to 0 to not have overflow on the right of the browser*/
+}
+
+/*
+    Animation to have a text that appear progressively. We need to play with a delay
+    on the width and the font-size to not have the browser have the text appears on the right
+    side of the browser view port. This has the side-effect of having an horizontal bar.
+*/
+.right-corder-container .right-corder-container-button .long-text.show-long-text{
+    transition: opacity 700ms,
+    width 1ms linear 270ms,       /*two thirds of the animation on the container width*/
+    font-size 1ms linear 270ms;   /*two thirds of the animation on the container width*/
+    opacity:1;
+    margin-top: 7px;                          /*Center the position vertically*/
+    margin-left: 65px;                        /*Center between the + and the right end side*/
+    font-size: 20px;                          /*Text size, cannot be defined initially without moving the scrollbar*/
+    width: auto;                              /*Required to be set with a delay (see animation) to not have scrollbar. Delay is to wait container to size up*/
+}
